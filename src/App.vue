@@ -1,6 +1,7 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import HeroSection from '@/components/HeroSection.vue'
+import { Button } from '@/components/ui/button'
 import { ref } from 'vue';
 
 const collections = ref([
@@ -20,6 +21,10 @@ const collections = ref([
     id: 434
   }
 ])
+
+function addCart(index) {
+  console.log(index)
+}
 </script>
 
 <template>
@@ -30,16 +35,18 @@ const collections = ref([
   <section class="collections">
     <div class="title">
       <h3>Our Collections</h3>
-      <hr>
+      <hr class="hre">
     </div>
     <div class="all-collection">
       <article class="collection" v-for="(item, index) in collections">
-        <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" alt="">
+        <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" height="300" width="200">
         <hr>
         <div class="detail">
-          <h4>{{ item.name }}</h4>
-          <h5>{{ item.price }} USD</h5>
-          <button>Cart</button>
+          <div>
+            <h4>{{ item.name }}</h4>
+            <h5>{{ item.price }} USD</h5>
+          </div>
+          <Button @click="addCart(index)">Cart</Button>
         </div>
       </article>
     </div>
@@ -64,20 +71,57 @@ main {
 }
 .grid {
   grid-template-rows: min-content;
-  background-color: rgba(216, 216, 216, 0.281);
+  background-color: rgb(216, 216, 216, 0.281);
 }
 
 .collections {
-  background-color: rgba(216, 216, 216, 0.281);
   padding: 1rem;
+  background-color: rgb(216, 216, 216, 0.281);
 }
 .title {
   display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 
-  
-}
-hr {
-    min-width: 60%;
-    height: 4px;
+  h3 {
+    white-space: nowrap;
   }
+
+  .hre {
+    width: 100%;
+    height: 2px;
+    border: none;
+    background-color: grey;
+    border-radius: 10px;
+}
+}
+
+.collection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #ffffffe8;
+  max-width: 400px;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+
+  img {
+    margin-inline: auto;
+  }
+}
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+hr {
+    background-color: brown;
+    height: 2px;
+    width: 100%;
+}
 </style>
