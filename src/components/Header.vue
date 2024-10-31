@@ -15,32 +15,60 @@
         </div>
         
         <span class="logo rounded-md">REVELOFFICE</span>
-        <Button class="btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" height="18px">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-        </Button>
+
+        <div class="hamburgerControl" ref="outsidemenu">
+            <Toggle class="btn" @update:pressed="toggleMenu" v-model:pressed="toggleState">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" height="18px">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </Toggle>
+            <div class="hamburgerMenu" v-if="toggleState" ref="outsidemenu">
+                <span>Shop</span>
+                <span>Track Orders</span>
+                <span>Contact</span>
+                <span><a href="#">Collections</a></span>
+                <span>Help</span>
+            </div>
+        </div>
     </nav>
 </template>
 
 <script setup>
 import { onClickOutside } from '@vueuse/core'
 import { Button } from '@/components/ui/button'
+import { Toggle } from '@/components/ui/toggle'
 import { ref } from 'vue'
 
 const target = ref(null);
+const outsidemenu = ref(null);
 const openMenu = ref(false);
+const toggleState = ref(false)
 
 onClickOutside(target, () => {
     openMenu.value = false;
+})
+onClickOutside(outsidemenu, () => {
+    toggleState.value = false
 })
 
 function toggleCart() {
     openMenu.value = !openMenu.value
 }
+
+function toggleMenu() {
+    toggleState.value = !toggleState.value
+    console.log(toggleState.value)
+}
 </script>
 
 <style lang="css" scoped>
+.hidden {
+    transform: scale(0);
+    transition: all 1s ease-in;
+}
+.visible {
+    transform: scale(1);
+}
 .nav-body {
     padding: 1px;
     display: flex;
@@ -78,4 +106,24 @@ function toggleCart() {
     width: 150px;
     border: 1px solid red;
 }
+.hamburgerControl {
+    position: relative;
+}
+.hamburgerMenu {
+    box-sizing: border-box;
+    width: calc(90vw - 1rem);
+    /* height: 100vh; */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border: 2px solid rgba(128, 128, 128, 0.274);
+    border-radius: 10px;
+    z-index: 100;
+}
+
 </style>
