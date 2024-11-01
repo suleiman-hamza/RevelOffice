@@ -28,8 +28,8 @@ function addCart(index) {
 </script>
 
 <template>
-  <main class="grid grid-cols-1 min-h-screen auto-rows-auto">
     <Header />
+  <main class="grid grid-cols-1 min-h-screen auto-rows-auto">
     <HeroSection />
   </main>
   <section class="collections">
@@ -49,6 +49,8 @@ function addCart(index) {
           <Button @click="addCart(index)">Cart</Button>
         </div>
       </article>
+      <RouterLink to="/test" >Test Route</RouterLink>
+      <RouterView />
     </div>
   </section>
 </template>

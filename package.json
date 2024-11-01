@@ -14,10 +14,12 @@
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.3.0",
     "lucide-vue-next": "^0.447.0",
+    "pinia": "^2.2.5",
     "radix-vue": "^1.9.6",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
-    "vue": "^3.4.37"
+    "vue": "^3.4.37",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
