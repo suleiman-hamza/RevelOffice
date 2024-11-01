@@ -17,11 +17,6 @@
         <span class="logo rounded-md">REVELOFFICE</span>
 
         <div class="hamburgerControl" ref="outsidemenu">
-            <!-- <Toggle class="btn" @update:pressed="toggleMenu" v-model:pressed="toggleState">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" height="18px">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </Toggle> -->
             <Button class="btn" @click="toggleMenu">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" height="18px">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -29,11 +24,10 @@
             </Button>
             <Transition name="scaleup">
                 <div class="hamburgerMenu" v-if="toggleState" ref="outsidemenu">
-                    <span>Shop</span>
-                    <span>Track Orders</span>
-                    <span>Contact</span>
-                    <span><a href="#">Collections</a></span>
-                    <span>Help</span>
+                    <span><RouterLink to="/">Home</RouterLink></span>
+                    <span><RouterLink to="/trackorders">Track Orders</RouterLink></span>
+                    <span><RouterLink to="/test">Shop test</RouterLink></span>
+                    <span><RouterLink to="/collections">Collections</Routerlink></span>
                 </div>
             </Transition>
         </div>
@@ -43,13 +37,19 @@
 <script setup>
 import { onClickOutside } from '@vueuse/core'
 import { Button } from '@/components/ui/button'
-import { Toggle } from '@/components/ui/toggle'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
 
 const target = ref(null);
 const outsidemenu = ref(null);
 const openMenu = ref(false);
 const toggleState = ref(false)
+
+watch(route, () => {
+    toggleState.value = false
+    console.log('kinda')
+})
 
 onClickOutside(target, () => {
     openMenu.value = false;
@@ -81,18 +81,23 @@ function toggleMenu() {
 .scaleup-leave-from {
     transform: scale(1);
 }
-.scaleup-enter-active,
-.scaleup-leave-active {
+.scaleup-enter-active {
     transition: transform 0.3s;
 }
+.scaleup-leave-active {
+    transition: transform 0s;
+}
 .nav-body {
-    padding: 1px;
+    padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
     /* border: 1px solid grey; */
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 .logo {
     border: 2px solid rgba(128, 128, 128, 0.274);
