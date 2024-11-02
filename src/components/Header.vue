@@ -6,12 +6,17 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
             </svg>
             </Button>
-            <ul class="nav-menu" v-if="openMenu">
-                <li>Menu 1</li>
-                <li>Menu 2</li>
-                <li>Menu 3</li>
-                <li>Menu 4</li>
-            </ul>
+            <div class="nav-menu" v-if="openMenu">
+                <ScrollArea class="h-[200px] w-[220px] rounded-md border p-4">
+                    Jokester began sneaking into the castle in the middle of the night and leaving
+                    jokes all over the place: under the king's pillow, in his soup, even in the
+                    royal toilet. The king was furious, but he couldn't seem to stop Jokester. And
+                    then, one day, the people of the kingdom discovered that the jokes left by
+                    Jokester were so funny that they couldn't help but laugh. And once they
+                    started laughing, they couldn't stop.
+                </ScrollArea>
+            </div>
+                
         </div>
         
         <span class="logo rounded-md">REVELOFFICE</span>
@@ -37,6 +42,7 @@
 <script setup>
 import { onClickOutside } from '@vueuse/core'
 import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
@@ -124,8 +130,9 @@ function toggleMenu() {
 }
 .nav-menu {
     position: absolute;
-    width: 150px;
-    border: 1px solid red;
+    border: 2px solid rgba(128, 128, 128, 0.274);
+    background-color: #fff;
+    border-radius: 10px;
 }
 .hamburgerControl {
     /* position: relative; */
