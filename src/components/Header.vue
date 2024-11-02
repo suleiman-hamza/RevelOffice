@@ -14,6 +14,7 @@
                     then, one day, the people of the kingdom discovered that the jokes left by
                     Jokester were so funny that they couldn't help but laugh. And once they
                     started laughing, they couldn't stop.
+                    Price from store is
                 </ScrollArea>
             </div>
                 
@@ -45,6 +46,8 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { cartStore } from '@/store/cartStore'
+const store = cartStore();
 const route = useRoute()
 
 const target = ref(null);
@@ -66,6 +69,7 @@ onClickOutside(target, () => {
 
 function toggleCart() {
     openMenu.value = !openMenu.value
+    console.log('trybsomething')
 }
 
 function toggleMenu() {
