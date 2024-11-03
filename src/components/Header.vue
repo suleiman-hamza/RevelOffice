@@ -8,13 +8,25 @@
             </Button>
             <div class="nav-menu" v-if="openMenu">
                 <ScrollArea class="h-[200px] w-[220px] rounded-md border p-4">
-                    Jokester began sneaking into the castle in the middle of the night and leaving
-                    jokes all over the place: under the king's pillow, in his soup, even in the
-                    royal toilet. The king was furious, but he couldn't seem to stop Jokester. And
-                    then, one day, the people of the kingdom discovered that the jokes left by
-                    Jokester were so funny that they couldn't help but laugh. And once they
-                    started laughing, they couldn't stop.
-                    Price from store is.
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Products</th>
+                                <th>Qty</th>
+                            </tr>
+                            <tr v-for="item in store.cart">
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.quantity }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="total">
+                        <span>Items: {{ store.total }}</span>
+                        <span>Total: ${{ store.totalcart }}</span>
+                    </div>
+                    <div class="checkout">
+                        <Button>Checkout</Button>
+                    </div>
                 </ScrollArea>
             </div>
                 
@@ -45,9 +57,11 @@ import { onClickOutside } from '@vueuse/core'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { ref, watch } from 'vue'
+
+
+import { useStore } from '@/store/cartStore';
+const store = useStore();
 import { useRoute, useRouter } from 'vue-router'
-import { cartStore } from '@/store/cartStore'
-const store = cartStore();
 const route = useRoute()
 
 const target = ref(null);
@@ -137,6 +151,7 @@ function toggleMenu() {
     border: 2px solid rgba(128, 128, 128, 0.274);
     background-color: #fff;
     border-radius: 10px;
+    z-index: 1000;
 }
 .hamburgerControl {
     /* position: relative; */
@@ -151,7 +166,7 @@ function toggleMenu() {
     padding: 1rem;
     border: 2px solid rgba(128, 128, 128, 0.274);
     border-radius: 10px;
-    z-index: 100;
+    z-index: 1000;
     left: 20px;
     right: 20px;
     top: 70px;

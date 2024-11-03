@@ -1,9 +1,11 @@
 <script setup>
+import { useStore } from '@/store/cartStore';
+const store = useStore();
 </script>
 
 <template>
     <section>
-      <h2 class="headline">Elevate your seating experience, designed for ultimate comfort and lifestyle.</h2>
+      <h2 class="headline">Elevate your seating experience, designed for ultimate comfort and lifestyle.{{ store.count }}</h2>
     <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" alt="">
     </section>
 </template>

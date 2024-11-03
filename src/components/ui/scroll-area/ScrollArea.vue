@@ -7,6 +7,8 @@ import {
 } from 'radix-vue';
 import { computed } from 'vue';
 import ScrollBar from './ScrollBar.vue';
+import { useStore } from '@/store/cartStore';
+const store = useStore();
 
 const props = defineProps({
   type: { type: String, required: false },
@@ -30,7 +32,8 @@ const delegatedProps = computed(() => {
     :class="cn('relative overflow-hidden', props.class)"
   >
     <ScrollAreaViewport class="h-full w-full rounded-[inherit]">
-      <slot />
+      <!-- {/* <p>{{ store.cart }}</p> */} -->
+       <slot></slot>
     </ScrollAreaViewport>
     <ScrollBar />
     <ScrollAreaCorner />
