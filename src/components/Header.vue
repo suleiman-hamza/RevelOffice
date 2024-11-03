@@ -56,8 +56,8 @@
             <Transition name="scaleup">
                 <div class="hamburgerMenu" v-if="toggleState" ref="outsidemenu">
                     <span><RouterLink to="/">Home</RouterLink></span>
-                    <span class="comingsoon"><RouterLink to="/trackorders">Track Orders</RouterLink></span>
-                    <span><RouterLink to="/test">Checkout</RouterLink></span>
+                    <span class="comingsoon"><RouterLink to="/test">Track Orders</RouterLink></span>
+                    <span><RouterLink to="/checkout">Checkout</RouterLink></span>
                     <span class="comingsoon"><RouterLink to="/collections">Collections</Routerlink></span>
                 </div>
             </Transition>
