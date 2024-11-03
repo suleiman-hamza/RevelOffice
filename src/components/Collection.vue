@@ -16,7 +16,6 @@
             <Button @click="addCart(index)">Cart</Button>
             </div>
         </article>
-        <RouterLink to="/test" >Test Route</RouterLink>
         <RouterView />
         </div>
     </section>

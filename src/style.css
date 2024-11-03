@@ -62,7 +62,7 @@ button:focus-visible {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #242424;
+  background-color: rgba(216, 216, 216, 0.281);
 }
 
 @media (prefers-color-scheme: light) {

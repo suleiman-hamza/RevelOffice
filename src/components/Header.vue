@@ -14,7 +14,7 @@
                     then, one day, the people of the kingdom discovered that the jokes left by
                     Jokester were so funny that they couldn't help but laugh. And once they
                     started laughing, they couldn't stop.
-                    Price from store is
+                    Price from store is.
                 </ScrollArea>
             </div>
                 
