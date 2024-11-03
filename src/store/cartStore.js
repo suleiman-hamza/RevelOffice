@@ -1,7 +1,13 @@
 import { defineStore } from 'pinia'
 import { ref, reactive, computed } from 'vue'
+import { toast } from 'vue-sonner'
+import { useRouter } from 'vue-router'
+
 
 export const useStore = defineStore('store', () => {
+
+    
+const router = useRouter();
     const count = ref(4);
     const items = reactive([
         {
@@ -53,6 +59,14 @@ export const useStore = defineStore('store', () => {
             } else {
                 cart.value.push(item.name)
             }
+
+        toast('Added an item to cart', {
+        description: `${item.name}`,
+        action: {
+          label: 'Checkout',
+          onClick: () => router.push('/checkout'),
+        },
+      })
     }
 
     const total = computed(() => {

@@ -1,5 +1,6 @@
 <script setup>
 import Header from '@/components/Header.vue'
+import { Toaster } from '@/components/ui/sonner'
 import HeroSection from '@/components/HeroSection.vue'
 import Collection from './components/Collection.vue';
 </script>
@@ -7,6 +8,7 @@ import Collection from './components/Collection.vue';
 <template>
     <Header />
     <RouterView />
+    <Toaster />
 </template>
 
 <style scoped>

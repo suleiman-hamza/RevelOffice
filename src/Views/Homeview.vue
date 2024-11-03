@@ -87,14 +87,14 @@ import ReviewCard from '@/components/ReviewCard.vue';
     },
     {
       name: "Jane",
-      username: "@jane",
-      body: "I'm at a loss for words. This is amazing. I love it.",
+      username: "@janegree",
+      body: "Perfect Addition to My Home Office!",
       img: "https://avatar.vercel.sh/jane",
     },
     {
-      name: "Jenny",
-      username: "@jenny",
-      body: "I'm at a loss for words. This is amazing. I love it.",
+      name: "Evan Yu",
+      username: "@youuxi",
+      body: "The materials feel premium, and the soft grey finish adds a touch of elegance to my workspace.",
       img: "https://avatar.vercel.sh/jenny",
     },
     {

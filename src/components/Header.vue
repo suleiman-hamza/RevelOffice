@@ -6,29 +6,42 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
             </svg>
             </Button>
+            <Transition name="scaleup">
             <div class="nav-menu" v-if="openMenu">
-                <ScrollArea class="h-[200px] w-[220px] rounded-md border p-4">
+                <ScrollArea class="h-[200px] w-[250px] rounded-md border p-4">
                     <div>
+                        <h2 class="cart-preview">Cart Preview</h2>
                         <table>
-                            <tr>
+                            <tr class="t-head">
                                 <th>Products</th>
                                 <th>Qty</th>
                             </tr>
                             <tr v-for="item in store.cart">
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.name }} </td>
+                                <td>{{ item.quantity }} </td>
                             </tr>
                         </table>
                     </div>
                     <div class="total">
-                        <span>Items: {{ store.total }}</span>
+                        <div><span>Items: {{ store.total }}</span></div>
                         <span>Total: ${{ store.totalcart }}</span>
                     </div>
                     <div class="checkout">
-                        <Button>Checkout</Button>
+                        <Button @click="checkoutRoute" class="check-btn">
+                            <span>Checkout</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16px" height="16px">
+                            <path d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 1 1 6 0h3a.75.75 0 0 0 .75-.75V15Z" />
+                            <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
+                            <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
+                            </svg>
+
+                        </Button>
                     </div>
                 </ScrollArea>
             </div>
+        </Transition>
+
+            <span class="absoluteTotal" v-if="store.total > 0">{{ store.total }}</span>
                 
         </div>
         
@@ -43,9 +56,9 @@
             <Transition name="scaleup">
                 <div class="hamburgerMenu" v-if="toggleState" ref="outsidemenu">
                     <span><RouterLink to="/">Home</RouterLink></span>
-                    <span><RouterLink to="/trackorders">Track Orders</RouterLink></span>
-                    <span><RouterLink to="/test">Shop test</RouterLink></span>
-                    <span><RouterLink to="/collections">Collections</Routerlink></span>
+                    <span class="comingsoon"><RouterLink to="/trackorders">Track Orders</RouterLink></span>
+                    <span><RouterLink to="/test">Checkout</RouterLink></span>
+                    <span class="comingsoon"><RouterLink to="/collections">Collections</Routerlink></span>
                 </div>
             </Transition>
         </div>
@@ -63,6 +76,7 @@ import { useStore } from '@/store/cartStore';
 const store = useStore();
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
+const router = useRouter();
 
 const target = ref(null);
 const outsidemenu = ref(null);
@@ -89,6 +103,11 @@ function toggleCart() {
 function toggleMenu() {
     toggleState.value = !toggleState.value
     console.log(toggleState.value)
+}
+
+function checkoutRoute() {
+    router.push('/checkout')
+    openMenu.value = false;
 }
 </script>
 
@@ -120,6 +139,8 @@ function toggleMenu() {
     position: fixed;
     width: 100%;
     background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     /* border: 1px solid grey; */
     /* margin-bottom: 1rem; */
 }
@@ -152,6 +173,7 @@ function toggleMenu() {
     background-color: #fff;
     border-radius: 10px;
     z-index: 1000;
+    top: 50px;
 }
 .hamburgerControl {
     /* position: relative; */
@@ -174,5 +196,52 @@ function toggleMenu() {
     /* margin: auto; */
     height: fit-content;
 }
+.absoluteTotal {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: burlywood;
+    font-size: 0.65rem;
+    padding: 0.35rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: 4px;
+    right: 2px;
+}
+.checkout .check-btn {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem 0.85rem;
+}
 
+.cart-preview {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.t-head {
+    text-align: left;
+}
+table {
+    margin-bottom: 1rem;
+}
+td {
+    padding-right: 1rem;
+}
+.total {
+    margin-bottom: 0.5rem;
+}
+.comingsoon::after {
+    position: absolute;
+    content: "Coming Soon";
+    left: 100px;
+    /* bottom: 10px; */
+    margin-left: 1rem;
+    font-size: 0.85rem;
+    background-color: violet;
+    border-radius: 10px;
+}
 </style>
