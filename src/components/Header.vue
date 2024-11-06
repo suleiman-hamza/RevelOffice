@@ -12,14 +12,18 @@
                     <div>
                         <h2 class="cart-preview">Cart Preview</h2>
                         <table>
-                            <tr class="t-head">
-                                <th>Products</th>
-                                <th>Qty</th>
-                            </tr>
-                            <tr v-for="item in store.cart">
-                                <td>{{ item.name }} </td>
-                                <td>{{ item.quantity }} </td>
-                            </tr>
+                            <thead>
+                                <tr class="t-head">
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in store.cart">
+                                    <td>{{ item.name }} </td>
+                                    <td>{{ item.quantity }} </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div class="total">
