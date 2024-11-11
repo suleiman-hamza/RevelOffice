@@ -1,18 +1,52 @@
 <script setup>
 import { ref } from 'vue';
 import { Input } from '@/components/ui/input'
+import * as z from 'zod'
+import {
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage
+  } from '@/components/ui/form'
 
-function submitInfo() {
-    console.log('Submitted form inputs')
-}
+const username = z.string().min(2, { message: 'minimum of 2 characters' })
+
+function onSubmit(values) {
+    console.log('Form submitted!', values)
+  }
 </script>
 <template>
     <main class="checkout-main">
         <section class="shipping-info">
-            <form @submit="submitInfo">
-                <h2>Shipping Address</h2>
-                <Input type="email" placeholder="Email" />
-            </form>
+           <h2>ShippingAddress</h2>
+           <form @submit="onSubmit">
+           <div class="flex">
+            <FormField v-slot="{ componentField }" name="username">
+                <FormItem>
+                    <FormLabel>FirstName</FormLabel>
+                    <FormControl>
+                        <Input placeholder="shadcn" type="text" v-bind="componentField" />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+            <FormField v-slot="{ componentField }" name="username">
+                <FormItem>
+                    <FormLabel>Lastname</FormLabel>
+                    <FormControl>
+                        <Input placeholder="shadcn" type="text" v-bind="componentField" />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+           </div>
+            
+        </form>
 
         </section>
         <!-- <h4>Coming Soon</h4>
@@ -29,5 +63,8 @@ function submitInfo() {
         justify-content: center;
         height: 100vh; */
         padding-top: 5rem;
+    }
+    .flex > * {
+        flex: 1;
     }
 </style> 
