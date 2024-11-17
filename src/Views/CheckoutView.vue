@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import { Input } from '@/components/ui/input'
 import * as z from 'zod'
+import { toTypedSchema } from '@vee-validate/zod';
+
 import {
     Form,
     FormControl,
@@ -10,9 +12,18 @@ import {
     FormItem,
     FormLabel,
     FormMessage
-  } from '@/components/ui/form'
+} from '@/components/ui/form'
+import Button from '@/components/ui/button/Button.vue';
 
-const username = z.string().min(2, { message: 'minimum of 2 characters' })
+const formSchema = toTypedSchema(z.object({
+    firstName: z.string().min(2).max(50),
+    lastname: z.string().min(2).max(50),
+    email: z.string().email('Must be a valid email'),
+    address: z.string().min(14, {message: 'Address should be compltete'}).max(50),
+    phone: z.number().gte(5).lte(5).positive().max(6),
+    postalCode: z.number().gt(5).positive(),
+    country: z.any()
+}))
 
 function onSubmit(values) {
     console.log('Form submitted!', values)
@@ -21,32 +32,83 @@ function onSubmit(values) {
 <template>
     <main class="checkout-main">
         <section class="shipping-info">
-           <h2>ShippingAddress</h2>
-           <form @submit="onSubmit">
-           <div class="flex">
-            <FormField v-slot="{ componentField }" name="username">
+        <h2>ShippingAddress</h2>
+        <Form @submit="onSubmit" :validation-schema="formSchema">
+            <FormField v-slot="{ componentField }" name="firstName">
                 <FormItem>
-                    <FormLabel>FirstName</FormLabel>
+                    <FormLabel>Firstname</FormLabel>
                     <FormControl>
-                        <Input placeholder="shadcn" type="text" v-bind="componentField" />
+                        <Input placeholder="firstname" type="text" v-bind="componentField"/>
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
                 </FormItem>
             </FormField>
-            <FormField v-slot="{ componentField }" name="username">
+            <FormField v-slot="{ componentField }" name="lastName">
                 <FormItem>
                     <FormLabel>Lastname</FormLabel>
                     <FormControl>
-                        <Input placeholder="shadcn" type="text" v-bind="componentField" />
+                        <Input placeholder="lastname" type="text" v-bind="componentField"/>
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
                 </FormItem>
             </FormField>
-           </div>
-            
-        </form>
+            <FormField v-slot="{ componentField }" name="email">
+                <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                        <Input placeholder="Enter Valid Email" type="email" v-bind="componentField"/>
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+            <FormField v-slot="{ componentField }" name="address">
+                <FormItem>
+                    <FormLabel>Home Address</FormLabel>
+                    <FormControl>
+                        <Input placeholder="Home Address" type="text" v-bind="componentField"/>
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+
+            <FormField v-slot="{ componentField }" name="phone">
+                <FormItem>
+                    <FormLabel>Phone</FormLabel>
+                    <FormControl>
+                        <Input placeholder="Mobile Number" type="number" v-bind="componentField"/>
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+
+            <FormField v-slot="{ componentField }" name="postalCode">
+                <FormItem>
+                    <FormLabel>Postal Code</FormLabel>
+                    <FormControl>
+                        <Input placeholder="Postal Code" type="number" v-bind="componentField"/>
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+
+            <FormField v-slot="{ componentField }" name="country">
+                <FormItem>
+                    <FormLabel>Home Address</FormLabel>
+                    <FormControl>
+                        <Input placeholder="Country" type="text" v-bind="componentField"/>
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            </FormField>
+            <Button>Submit</Button>
+        </Form>
 
         </section>
         <!-- <h4>Coming Soon</h4>
@@ -63,8 +125,5 @@ function onSubmit(values) {
         justify-content: center;
         height: 100vh; */
         padding-top: 5rem;
-    }
-    .flex > * {
-        flex: 1;
     }
 </style> 
