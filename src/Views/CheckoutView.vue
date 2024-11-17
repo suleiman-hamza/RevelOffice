@@ -20,7 +20,7 @@ const formSchema = toTypedSchema(z.object({
     lastname: z.string().min(2).max(50),
     email: z.string().email('Must be a valid email'),
     address: z.string().min(14, {message: 'Address should be compltete'}).max(50),
-    phone: z.number().gte(5).lte(5).positive().max(6),
+    phone: z.number().gt(10).positive(),
     postalCode: z.number().gt(5).positive(),
     country: z.any()
 }))
@@ -32,13 +32,13 @@ function onSubmit(values) {
 <template>
     <main class="checkout-main">
         <section class="shipping-info">
-        <h2>ShippingAddress</h2>
+        <h2>Shipping Address</h2>
         <Form @submit="onSubmit" :validation-schema="formSchema">
             <FormField v-slot="{ componentField }" name="firstName">
                 <FormItem>
                     <FormLabel>Firstname</FormLabel>
                     <FormControl>
-                        <Input placeholder="firstname" type="text" v-bind="componentField"/>
+                        <Input placeholder="firstname" type="text" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -48,7 +48,7 @@ function onSubmit(values) {
                 <FormItem>
                     <FormLabel>Lastname</FormLabel>
                     <FormControl>
-                        <Input placeholder="lastname" type="text" v-bind="componentField"/>
+                        <Input placeholder="lastname" type="text" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -58,7 +58,7 @@ function onSubmit(values) {
                 <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                        <Input placeholder="Enter Valid Email" type="email" v-bind="componentField"/>
+                        <Input placeholder="Enter Valid Email" type="email" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -68,7 +68,7 @@ function onSubmit(values) {
                 <FormItem>
                     <FormLabel>Home Address</FormLabel>
                     <FormControl>
-                        <Input placeholder="Home Address" type="text" v-bind="componentField"/>
+                        <Input placeholder="Home Address" type="text" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -79,7 +79,7 @@ function onSubmit(values) {
                 <FormItem>
                     <FormLabel>Phone</FormLabel>
                     <FormControl>
-                        <Input placeholder="Mobile Number" type="number" v-bind="componentField"/>
+                        <Input placeholder="Mobile Number" type="number" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -90,7 +90,7 @@ function onSubmit(values) {
                 <FormItem>
                     <FormLabel>Postal Code</FormLabel>
                     <FormControl>
-                        <Input placeholder="Postal Code" type="number" v-bind="componentField"/>
+                        <Input placeholder="Postal Code" type="number" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -101,15 +101,33 @@ function onSubmit(values) {
                 <FormItem>
                     <FormLabel>Home Address</FormLabel>
                     <FormControl>
-                        <Input placeholder="Country" type="text" v-bind="componentField"/>
+                        <Input placeholder="Country" type="text" v-bind="componentField" class="px-2" />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
                 </FormItem>
             </FormField>
-            <Button>Submit</Button>
+            <Button @click="onSubmit">Submit</Button>
         </Form>
-
+        </section>
+        <section class="pay">
+            <div class="payment-option">
+                <fieldset>
+                    <legend>Choose Payment Method</legend>
+                    <label for="paypal">
+                        <span>PayPal</span>
+                        <input type="radio" name="payment-option" id="paypal" value="payPal" />
+                    </label>
+                    <label for="creditcard">
+                        <span>Credit Card</span>
+                        <input type="radio" name="payment-option" id="creditcard" value="credit_card" checked />
+                    </label>
+                    <label for="stripe">
+                        <span>Stripe</span>
+                        <input type="radio" name="payment-option" id="stripe" value="stripe" />
+                    </label>
+                </fieldset>
+            </div>
         </section>
         <!-- <h4>Coming Soon</h4>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -125,5 +143,22 @@ function onSubmit(values) {
         justify-content: center;
         height: 100vh; */
         padding-top: 5rem;
-    }
+}
+.shipping-info > h2 {
+    margin-bottom: 1rem;
+}
+.payment-option label {
+    border: 1px solid red;
+    padding: 0.5rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.2rem
+}
+
 </style> 
