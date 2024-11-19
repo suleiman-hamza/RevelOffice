@@ -214,6 +214,7 @@ function checkoutRoute() {
     border-radius: 50%;
     top: 4px;
     right: 2px;
+    pointer-events: none;
 }
 .checkout .check-btn {
     display: flex;

@@ -1,6 +1,11 @@
 <script setup>
-import { ref } from 'vue';
+import { shallowRef, ref } from 'vue';
+import Paypal from '@/components/Paypal.vue';
+import Stripe from '@/components/Stripe.vue';
+import Creditcard from '@/components/Creditcard.vue';
+
 import { Input } from '@/components/ui/input'
+import Button from '@/components/ui/button/Button.vue';
 import * as z from 'zod'
 import { toTypedSchema } from '@vee-validate/zod';
 
@@ -13,7 +18,6 @@ import {
     FormLabel,
     FormMessage
 } from '@/components/ui/form'
-import Button from '@/components/ui/button/Button.vue';
 
 const formSchema = toTypedSchema(z.object({
     firstName: z.string().min(2).max(50),
@@ -25,6 +29,11 @@ const formSchema = toTypedSchema(z.object({
     country: z.any()
 }))
 
+const paypal = shallowRef(Paypal)
+const stripe = shallowRef(Stripe)
+const credit = shallowRef(Creditcard)
+const activeComponent = shallowRef()
+
 function onSubmit(values) {
     console.log('Form submitted!', values)
   }
@@ -32,7 +41,7 @@ function onSubmit(values) {
 <template>
     <main class="checkout-main">
         <section class="shipping-info">
-        <h2>Shipping Address</h2>
+        <h2>Shipping Info</h2>
         <Form @submit="onSubmit" :validation-schema="formSchema">
             <FormField v-slot="{ componentField }" name="firstName">
                 <FormItem>
@@ -111,22 +120,26 @@ function onSubmit(values) {
         </Form>
         </section>
         <section class="pay">
-            <div class="payment-option">
+            <div class="payment-option space-y-2">
                 <fieldset>
                     <legend>Choose Payment Method</legend>
                     <label for="paypal">
                         <span>PayPal</span>
-                        <input type="radio" name="payment-option" id="paypal" value="payPal" />
+                        <input type="radio" name="payment-option" id="paypal" :value="paypal" v-model="activeComponent" />
                     </label>
                     <label for="creditcard">
                         <span>Credit Card</span>
-                        <input type="radio" name="payment-option" id="creditcard" value="credit_card" checked />
+                        <input type="radio" name="payment-option" id="creditcard" :value="credit" v-model="activeComponent"/>
                     </label>
                     <label for="stripe">
                         <span>Stripe</span>
-                        <input type="radio" name="payment-option" id="stripe" value="stripe" />
+                        <input type="radio" name="payment-option" id="stripe" :value="stripe" v-model="activeComponent"/>
                     </label>
                 </fieldset>
+                <div class="payment-section">
+                    <component :is="activeComponent" />
+                    <!-- <component :is="stripe" /> -->
+                </div>
             </div>
         </section>
         <!-- <h4>Coming Soon</h4>
@@ -160,5 +173,10 @@ fieldset {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.2rem
 }
-
+.payment-section {
+    margin-top: 1rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 1rem
+}
 </style> 
