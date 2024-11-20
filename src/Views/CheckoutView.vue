@@ -32,7 +32,7 @@ const formSchema = toTypedSchema(z.object({
 const paypal = shallowRef(Paypal)
 const stripe = shallowRef(Stripe)
 const credit = shallowRef(Creditcard)
-const activeComponent = shallowRef()
+const activeComponent = shallowRef(undefined)
 
 function onSubmit(values) {
     console.log('Form submitted!', values)
