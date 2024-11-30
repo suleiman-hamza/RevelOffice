@@ -1,123 +1,45 @@
 <script setup>
-import { shallowRef, ref } from 'vue';
+import { shallowRef, ref, onMounted } from 'vue';
+import ShippingInfo from '@/components/ShippingInfo.vue';
 import Paypal from '@/components/Paypal.vue';
 import Stripe from '@/components/Stripe.vue';
 import Creditcard from '@/components/Creditcard.vue';
 
-import { Input } from '@/components/ui/input'
-import Button from '@/components/ui/button/Button.vue';
-import * as z from 'zod'
-import { toTypedSchema } from '@vee-validate/zod';
+onMounted(() => {
+    const storedData = localStorage.getItem('submit');
+    if (storedData) {
+        formData = JSON.parse(storedData);
+        formFilled.value = true;
+    }
+})
 
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage
-} from '@/components/ui/form'
-
-const formSchema = toTypedSchema(z.object({
-    firstName: z.string().min(2).max(50),
-    lastname: z.string().min(2).max(50),
-    email: z.string().email('Must be a valid email'),
-    address: z.string().min(14, {message: 'Address should be compltete'}).max(50),
-    phone: z.number().gt(10).positive(),
-    postalCode: z.number().gt(5).positive(),
-    country: z.any()
-}))
-
+const formFilled = ref(false)
+let formData = ref()
 const paypal = shallowRef(Paypal)
 const stripe = shallowRef(Stripe)
 const credit = shallowRef(Creditcard)
-const activeComponent = shallowRef(undefined)
+const activeComponent = shallowRef(undefined) //check this out
 
-function onSubmit(values) {
-    console.log('Form submitted!', values)
-  }
+function updated() {
+    formFilled.value = true;
+    console.log('something')
+}
+
 </script>
 <template>
     <main class="checkout-main">
         <section class="shipping-info">
-        <h2>Shipping Info</h2>
-        <Form @submit="onSubmit" :validation-schema="formSchema">
-            <FormField v-slot="{ componentField }" name="firstName">
-                <FormItem>
-                    <FormLabel>Firstname</FormLabel>
-                    <FormControl>
-                        <Input placeholder="firstname" type="text" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-            <FormField v-slot="{ componentField }" name="lastName">
-                <FormItem>
-                    <FormLabel>Lastname</FormLabel>
-                    <FormControl>
-                        <Input placeholder="lastname" type="text" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-            <FormField v-slot="{ componentField }" name="email">
-                <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Enter Valid Email" type="email" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-            <FormField v-slot="{ componentField }" name="address">
-                <FormItem>
-                    <FormLabel>Home Address</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Home Address" type="text" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-
-            <FormField v-slot="{ componentField }" name="phone">
-                <FormItem>
-                    <FormLabel>Phone</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Mobile Number" type="number" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-
-            <FormField v-slot="{ componentField }" name="postalCode">
-                <FormItem>
-                    <FormLabel>Postal Code</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Postal Code" type="number" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-
-            <FormField v-slot="{ componentField }" name="country">
-                <FormItem>
-                    <FormLabel>Home Address</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Country" type="text" v-bind="componentField" class="px-2" />
-                    </FormControl>
-                    <FormDescription />
-                    <FormMessage />
-                </FormItem>
-            </FormField>
-            <Button @click="onSubmit">Submit</Button>
-        </Form>
+            <h2 class="mb-4">Shipping Info</h2>
+            <ShippingInfo v-if="formFilled === false" @update="updated"/>
+            <div class="showItem" v-if="formFilled === true">
+                <p>The {{ formData.value }}</p>
+                <!-- <p>{{ formData.lastName }}</p>
+                <p>{{ formData.email }}</p>
+                <p>{{ formData.address }}</p>
+                <p>{{ formData.phone }}</p>
+                <p>{{ formData.postalCode }}</p>
+                <p>{{ formData.country }}</p> -->
+            </div>
         </section>
         <section class="pay">
             <div class="payment-option space-y-2">
@@ -136,7 +58,7 @@ function onSubmit(values) {
                         <input type="radio" name="payment-option" id="stripe" :value="stripe" v-model="activeComponent"/>
                     </label>
                 </fieldset>
-                <div class="payment-section">
+                <div class="mt-4 border-2 border-sky-500 px-4 py-4">
                     <component :is="activeComponent" />
                     <!-- <component :is="stripe" /> -->
                 </div>
@@ -157,9 +79,9 @@ function onSubmit(values) {
         height: 100vh; */
         padding-top: 5rem;
 }
-.shipping-info > h2 {
+/* .shipping-info > h2 {
     margin-bottom: 1rem;
-}
+} */
 .payment-option label {
     border: 1px solid red;
     padding: 0.5rem;
