@@ -32,7 +32,7 @@ function updated() {
             <h2 class="mb-4">Shipping Info</h2>
             <ShippingInfo v-if="formFilled === false" @update="updated"/>
             <div class="showItem" v-if="formFilled === true">
-                <p>The {{ formData.value }}</p>
+                <p>The styff {{ formData.value }}</p>
                 <!-- <p>{{ formData.lastName }}</p>
                 <p>{{ formData.email }}</p>
                 <p>{{ formData.address }}</p>

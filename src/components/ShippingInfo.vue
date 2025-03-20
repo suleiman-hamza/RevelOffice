@@ -73,7 +73,7 @@
                     <FormMessage />
                 </FormItem>
             </FormField>
-            <Button @click="onSubmit">Submit</Button>
+            <Button>Submit</Button>
         </Form>
         
 </template>
@@ -117,9 +117,9 @@ const submit = ref({
         country: ''
     })
 
-function onSubmit(values) {
-    console.log('Form submitted!', values)  
-    localStorage.setItem('submit', JSON.stringify(values))
-    emit('update')
-  }
+// function onSubmit(values) {
+//     console.log('Form submitted!', values)  
+//     localStorage.setItem('submit', JSON.stringify(values))
+//     emit('update')
+//   }
 </script>

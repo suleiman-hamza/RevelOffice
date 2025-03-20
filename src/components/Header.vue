@@ -1,14 +1,17 @@
 <template>
     <nav class="nav-body">
-        <div class="cart" ref="target">
-            <Button class="flex-initial btn" @click="toggleCart">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-            </svg>
-            </Button>
-            <Transition name="scaleup">
-            <div class="nav-menu" v-if="openMenu">
-                <ScrollArea class="h-[200px] w-[250px] rounded-md border p-4">
+        <Sheet>
+                <SheetTrigger as-child>
+                    <Button class="flex-initial btn" @click="toggleCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    </Button>
+                </SheetTrigger>
+            <SheetContent>
+            <SheetHeader>
+                <SheetTitle>Are you absolutely sure?</SheetTitle>
+                <SheetDescription>
                     <div>
                         <h2 class="cart-preview">Cart Preview</h2>
                         <table>
@@ -38,16 +41,13 @@
                             <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
                             <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
                             </svg>
-
                         </Button>
                     </div>
-                </ScrollArea>
-            </div>
-        </Transition>
-
-            <span class="absoluteTotal" v-if="store.total > 0">{{ store.total }}</span>
-                
-        </div>
+                    <span class="absoluteTotal" v-if="store.total > 0">{{ store.total }}</span>
+                </SheetDescription>
+            </SheetHeader>
+            </SheetContent>
+        </Sheet>
         
         <span class="logo rounded-md">REVELOFFICE</span>
 
@@ -70,6 +70,14 @@
 </template>
 
 <script setup>
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { onClickOutside } from '@vueuse/core'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -82,9 +90,9 @@ import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter();
 
-const target = ref(null);
+// const target = ref(null);
 const outsidemenu = ref(null);
-const openMenu = ref(false);
+// const openMenu = ref(false);
 const toggleState = ref(false)
 
 watch(route, () => {
@@ -92,18 +100,18 @@ watch(route, () => {
     console.log('kinda')
 })
 
-onClickOutside(target, () => {
-    openMenu.value = false;
-})
+// onClickOutside(target, () => {
+//     openMenu.value = false;
+// })
 
 onClickOutside(outsidemenu, () => {
     toggleState.value = false
 })
 
-function toggleCart() {
-    openMenu.value = !openMenu.value
-    console.log('trybsomething')
-}
+// function toggleCart() {
+//     openMenu.value = !openMenu.value
+//     console.log('trybsomething')
+// }
 
 function toggleMenu() {
     toggleState.value = !toggleState.value
@@ -112,7 +120,6 @@ function toggleMenu() {
 
 function checkoutRoute() {
     router.push('/checkout')
-    openMenu.value = false;
 }
 </script>
 
@@ -145,7 +152,7 @@ function checkoutRoute() {
     width: 100%;
     background-color: #fff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 2;
     /* border: 1px solid grey; */
     /* margin-bottom: 1rem; */
 }
