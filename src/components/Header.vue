@@ -95,9 +95,10 @@ watch(route, () => {
 onClickOutside(target, () => {
     openMenu.value = false;
 })
-// onClickOutside(outsidemenu, () => {
-//     toggleState.value = false
-// })
+
+onClickOutside(outsidemenu, () => {
+    toggleState.value = false
+})
 
 function toggleCart() {
     openMenu.value = !openMenu.value
@@ -132,7 +133,7 @@ function checkoutRoute() {
     transition: transform 0.3s;
 }
 .scaleup-leave-active {
-    transition: transform 0s;
+    transition: transform 0.3s;
 }
 .nav-body {
     padding: 0.75rem 1rem;
