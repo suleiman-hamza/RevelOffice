@@ -94,10 +94,10 @@ const outsidemenu = ref(null);
 // const openMenu = ref(false);
 const toggleState = ref(false)
 
-// watch(route, () => {
-//     toggleState.value = false
-//     console.log('kinda')
-// })
+watch(route, () => {
+    toggleState.value = false
+    console.log('kinda')
+})
 
 // onClickOutside(target, () => {
 //     openMenu.value = false;
@@ -158,7 +158,7 @@ function checkoutRoute() {
     /* margin-bottom: 1rem; */
 }
 .logo {
-    border: 2px solid rgba(128, 128, 128, 0.274);
+    border: 2px solid #80808046;
     flex: auto;
     text-align: center;
     height: fit-content;
