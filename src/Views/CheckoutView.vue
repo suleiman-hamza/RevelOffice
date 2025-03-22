@@ -15,21 +15,21 @@ const cartItems = ref([
     {
         itemName: 'New Adidas 350 Yeezy Boost Sneakers',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: './src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
+        itemImg: 'src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
+        quantity: 1,
+        price: 900
+    },
+    {
+        itemName: 'New Adidas 350 Yeezy Boost Sneakers',
+        description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
+        itemImg: 'src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
         quantity: 1,
         price: 200
     },
     {
         itemName: 'New Adidas 350 Yeezy Boost Sneakers',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: './src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
-        quantity: 1,
-        price: 200
-    },
-    {
-        itemName: 'New Adidas 350 Yeezy Boost Sneakers',
-        description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: "./src/assets/images/U574LGIL.webp",
+        itemImg: "src/assets/images/U574LGIL.webp",
         quantity: 1,
         price: 600
     }
