@@ -1,26 +1,18 @@
 <script setup>
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { shallowRef, ref, onMounted } from 'vue';
-import ShippingInfo from '@/components/ShippingInfo.vue';
-import Paypal from '@/components/Paypal.vue';
-import Stripe from '@/components/Stripe.vue';
-import Creditcard from '@/components/Creditcard.vue';
-
-const paypal = shallowRef(Paypal)
-const stripe = shallowRef(Stripe)
-const credit = shallowRef(Creditcard)
-const activeComponent = shallowRef(undefined) //check this out
+import { Button } from '@/components/ui/button';
 
 const cartItems = ref([
     {
-        itemName: 'New Adidas 350 Yeezy Boost Sneakers',
+        itemName: 'Furniture Group G20 Gaming Chair',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
         itemImg: 'src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
         quantity: 1,
         price: 900
     },
     {
-        itemName: 'New Adidas 350 Yeezy Boost Sneakers',
+        itemName: 'Piper Ergonomics office chair',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
         itemImg: 'src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
         quantity: 1,
@@ -43,20 +35,20 @@ const cartItems = ref([
         <h1 class="mb-4">Cart Summary</h1>
 
         <section class="cart-summary-main">
-            <div class="subtotal flex justify-between mb-4 border-2 border-solid bg-[#80808046] p-2">
+            <div class="subtotal flex justify-between mb-4 bg-[#80808046] p-2">
                 <h2>Subtotal</h2>
                 <h3>#Amount</h3>
             </div>
-            <div class="summary-items border-2 border-solid" v-for="(product, index) in cartItems" :key="index">
-                <!-- <img :src="" alt="img" width="100px" height="100px"> -->
-                <div class="flex ">
-                    <img :src="product.itemImg" alt="some pics" width="100px" height="100px">
-                    <div class="">
-                        <p>{{ product.itemName }}</p>
-                        <p>{{ index }}</p>
+            <div class="summary-items border-2 border-solid p-4 mb-2" v-for="(product, index) in cartItems" :key="index">
+                <div class="flex gap-4 mb-2">
+                    <img :src="product.itemImg" alt="some pics" width="100px" height="100px" class="aspect-square object-contain bg-[#80808046] rounded-md">
+                    <div class="flex flex-col justify-between">
+                        <p class="truniicate">{{ product.itemName }}</p>
+                        <p>${{ product.price }}</p>
+                        <Button variant="secondary" class="self-start">1</Button>
                     </div>
                 </div>
-                <div class="p-2">
+                <div>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                         <AccordionTrigger>Description:</AccordionTrigger>
@@ -78,10 +70,17 @@ const cartItems = ref([
     height: 60px;
 }
 .cart-summary {
-    border: 1px solid red;
     h1 {
         font-size: 1.125rem;
     }
 }
-
+/*multiline ellipsis: truncates text after multiplr lines, should work in modern browsers. src: deepseek ai*/
+.truniicate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    width: 100%;
+}
 </style> 
