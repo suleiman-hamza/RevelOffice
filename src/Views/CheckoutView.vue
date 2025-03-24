@@ -2,6 +2,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { shallowRef, ref, onMounted } from 'vue';
 import { Button } from '@/components/ui/button';
+import { Trash2 } from 'lucide-vue-next';
 
 const cartItems = ref([
     {
@@ -45,7 +46,9 @@ const cartItems = ref([
                     <div class="flex flex-col justify-between">
                         <p class="truniicate">{{ product.itemName }}</p>
                         <p>${{ product.price }}</p>
-                        <Button variant="secondary" class="self-start">1</Button>
+                        <Button variant="secondary" class="self-start flex items-center p-2">
+                            <Trash2 size="20" />
+                        </Button>
                     </div>
                 </div>
                 <div>
