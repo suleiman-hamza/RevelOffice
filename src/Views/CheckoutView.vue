@@ -50,7 +50,7 @@ const cartItems = ref([
             <div class="summary-items border-2 border-solid" v-for="(product, index) in cartItems" :key="index">
                 <!-- <img :src="" alt="img" width="100px" height="100px"> -->
                 <div class="flex ">
-                    <img :src=product.itemImg alt="some pics" width="100px" height="100px">
+                    <img :src="product.itemImg" alt="some pics" width="100px" height="100px">
                     <div class="">
                         <p>{{ product.itemName }}</p>
                         <p>{{ index }}</p>
