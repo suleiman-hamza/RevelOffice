@@ -1,5 +1,14 @@
 <script setup>
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { shallowRef, ref, onMounted } from 'vue';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-vue-next';
@@ -45,10 +54,30 @@ const cartItems = ref([
                     <img :src="product.itemImg" alt="some pics" width="100px" height="100px" class="aspect-square object-contain bg-[#80808046] rounded-md">
                     <div class="flex flex-col justify-between">
                         <p class="truniicate">{{ product.itemName }}</p>
-                        <p>${{ product.price }}</p>
-                        <Button variant="secondary" class="self-start flex items-center p-2">
-                            <Trash2 size="20" />
-                        </Button>
+                        <p class="font-medium">${{ product.price }}</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-4 items-center">
+                                <h3>Qty</h3>
+                                <Select>
+                                    <SelectTrigger class="w-18">
+                                    <SelectValue placeholder="1" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>Fruits</SelectLabel>
+                                        <SelectItem value="1">1</SelectItem>
+                                        <SelectItem value="2">2</SelectItem>
+                                        <SelectItem value="3">3</SelectItem>
+                                        <SelectItem value="4">4</SelectItem>
+                                        <SelectItem value="5">5</SelectItem>
+                                    </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <Button variant="secondary" class="self-start flex items-center p-2">
+                                <Trash2 size="20" />
+                            </Button>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -83,6 +112,7 @@ const cartItems = ref([
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     text-overflow: ellipsis;
     width: 100%;
 }
