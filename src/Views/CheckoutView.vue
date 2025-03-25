@@ -45,11 +45,11 @@ const cartItems = ref([
         <h1 class="mb-4">Cart Summary</h1>
 
         <section class="cart-summary-main">
-            <div class="subtotal flex justify-between mb-4 bg-[#80808046] p-2">
+            <div class="subtotal flex justify-between mb-4 bg-[#80808046] p-2 rounded-sm">
                 <h2>Subtotal</h2>
                 <h3>#Amount</h3>
             </div>
-            <div class="summary-items border-2 border-solid p-4 mb-2" v-for="(product, index) in cartItems" :key="index">
+            <div class="summary-items border rounded-sm border-solid p-4 mb-4" v-for="(product, index) in cartItems" :key="index">
                 <div class="flex gap-4 mb-2">
                     <img :src="product.itemImg" alt="some pics" width="100px" height="100px" class="aspect-square object-contain bg-[#80808046] rounded-md">
                     <div class="flex flex-col justify-between">
@@ -83,14 +83,38 @@ const cartItems = ref([
                 <div>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
-                        <AccordionTrigger>Description:</AccordionTrigger>
-                        <AccordionContent>
+                        <AccordionTrigger class="p-2 border bg-gray-50 rounded-sm">Description:</AccordionTrigger>
+                        <AccordionContent class="p-2 border">
                             {{ product.description }}
                         </AccordionContent>
                         </AccordionItem>
                     </Accordion>
                 </div>
-                <!-- <p>Description: {{ product.description }}</p> -->
+            </div>
+        </section>
+        <section class="order-summary">
+            <div class="order-sum-head flex justify-between mb-4 bg-[#80808046] p-2 rounded-sm">
+                <h3>Order Summary</h3>
+                <h5>#Order Id</h5>
+            </div>
+            <div class="border p-4 text-[#7a7c81] flex flex-col gap-3 rounded-sm">
+                <span class="subtotal flex justify-between">
+                    <p>Subtotal</p>
+                    <h4>$1200</h4>
+                </span>
+                <span class="shipping-charge flex justify-between">
+                    <p>Shipping Charge</p>
+                    <h4>$25.00</h4>
+                </span>
+                <span class="tax flex justify-between">
+                    <p>Tax</p>
+                    <h4>$12.99</h4>
+                </span>
+                <span class="total flex justify-between">
+                    <p>Total</p>
+                    <h4>$1560</h4>
+                </span>
+                <Button class="w-full">Proceed to Payment</Button>
             </div>
         </section>
     </main>
