@@ -11,7 +11,7 @@
             <div class="detail">
             <div>
                 <h4>{{ item.name }}</h4>
-                <h5>{{ item.price }} USD</h5>
+                <h5>${{ item.price }} USD</h5>
             </div>
             <Button @click="store.addStuff(item)"
             variant="outline"

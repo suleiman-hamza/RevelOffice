@@ -37,7 +37,8 @@ const cartItems = ref([
     }
 ])
 
-
+const random = Math.floor(Math.random() * 2045);
+console.log(random)
 </script>
 <template>
     <main class="cart-summary">
@@ -95,7 +96,7 @@ const cartItems = ref([
         <section class="order-summary">
             <div class="order-sum-head flex justify-between mb-4 bg-[#80808046] p-2 rounded-sm">
                 <h3>Order Summary</h3>
-                <h5>#Order Id</h5>
+                <h5>#{{ random }}</h5>
             </div>
             <div class="border p-4 text-[#7a7c81] flex flex-col gap-3 rounded-sm">
                 <span class="subtotal flex justify-between">
