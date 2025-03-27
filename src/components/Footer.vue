@@ -1,6 +1,9 @@
+<script setup lang="ts">
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+</script>
 <template>
     <footer class="footer">
-        <div class="foot-head">
+        <section class="foot-head">
             <h2>
                 <span>Revel Office</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -9,51 +12,109 @@
             </h2>
             <p>Your one stop destination for quality workspace equipments</p>
             <hr>
-        </div>
-        <section>
+        </section>
+        <section class="footer-social">
+            <div class="flex item-center gap-4">
+                <a href="#" class="block border-2" target="_blank">
+                    <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                </a>
+                <a href="#" class="block border-2" target="_blank">
+                    <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                </a>
+                <a href="#" class="block border-2" target="_blank">
+                    <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                </a>
+                <a href="#" class="block border-2" target="_blank">
+                    <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                </a>
+            </div>
+        </section>
+        <hr>
+        <section class="footer-nav-section">
             <div class="menu">
-                <h4>Menu</h4>
-                <ul>
-                    <li>Sales</li>
-                    <li>Collections</li>
-                    <li>Cataloque</li>
-                </ul>
+                <Accordion type="single" collapsible>
+                    <AccordionItem value="item-1">
+                    <AccordionTrigger class="p-2 bg-gray-50 rounded-sm">Menu</AccordionTrigger>
+                    <AccordionContent class="p-2 border">
+                        <ul>
+                            <li>Sales</li>
+                            <li>Collections</li>
+                            <li>Cataloque</li>
+                            <li>About Us</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
             </div>
             <div class="legal">
-                <h4>Legal</h4>
-                <ul>
-                    <li>Shipping</li>
-                    <li>Track Orders</li>
-                    <li>Return Policy</li>
-                    <li>Payments</li>
-                    <li>Support</li>
-                </ul>
+                <Accordion type="single" collapsible>
+                    <AccordionItem value="item-1">
+                    <AccordionTrigger class="p-2 bg-gray-50 rounded-sm">Legal</AccordionTrigger>
+                    <AccordionContent class="p-2 border">
+                        <ul>
+                            <li>Shipping</li>
+                            <li>Track Orders</li>
+                            <li>Return Policy</li>
+                            <li>Payments</li>
+                            <li>Support</li>
+                        </ul>
+                    </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
             </div>
             <div class="help">
-                <h4>Help</h4>
-                <ul>
-                    <li>Contact</li>
-                    <li>Customer Support</li>
-                    <li>Return Policy</li>
-                    <li>Inquiries</li>
-                </ul>
+                <Accordion type="single" collapsible>
+                    <AccordionItem value="item-1">
+                    <AccordionTrigger class="p-2 bg-gray-50 rounded-sm">Help</AccordionTrigger>
+                    <AccordionContent class="p-2 border">
+                        <ul>
+                            <li>Contact</li>
+                            <li>Customer Support</li>
+                            <li>Return Policy</li>
+                            <li>Inquiries</li>
+                        </ul>
+                    </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
             </div>
+        </section>
+        <hr>
+        <section class="office-branch">
+            <div class="mt-4 flex gap-2 items-start">
+                <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                <span>
+                    <h5 class="font-semibold">Corporate Office:</h5>
+                    <p>Suit 3, 207 Regent Street London, W18 3HH, UK</p>
+                </span>
+            </div>
+            <div class="mt-4 flex gap-2 items-start">
+                <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                <span>
+                    <h5 class="font-semibold">Operations Office:</h5>
+                    <p>Flat 7, Plot 1, 74 Patience Offiong Street, Katampe, Abuja, Nigeria</p>
+                </span>
+            </div>
+        </section>
+        <hr>
+        <section class="copyright">
+            <p class="mt-4">Copyright @ 2025,  All right reserved.</p>
         </section>
     </footer>
 </template>
 
 <style scoped>
 .footer {
-    background-color: rgba(216, 216, 216, 0.281);
+    /* background-color: rgba(216, 216, 216, 0.281); */
+    border-top: 1px solid grey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     padding: 1rem;
 }
 
 .foot-head {
-    border-top: 1px solid hsl(214.3, 31.8%, 91.4%);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     background-color: #fff;
-    padding: 1rem;
+    /*padding: 1rem;*/
     text-align: center;
 }
 
@@ -75,18 +136,18 @@ hr {
     margin: 1rem 0;
 }
 
-section {
+/* .footer-nav-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #fff;
     padding: 1rem;
     gap: 1rem;
-}
+} */
 
 .menu, .legal, .help {
     flex: 1 1 100%;
-    text-align: center;
+    /* text-align: center; */
     margin: 0.5rem 0;
 }
 
