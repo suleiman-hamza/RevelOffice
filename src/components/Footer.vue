@@ -83,7 +83,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
         <hr>
         <section class="office-branch">
             <div class="mt-8 flex gap-2 items-start">
-                <MapPinHouse />           
+                <MapPinHouse />       
                 <span>
                     <h5 class="font-semibold">Corporate Office:</h5>
                     <p>Suit 3, 207 Regent Street London, W18 3HH, UK</p>

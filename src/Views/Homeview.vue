@@ -51,7 +51,7 @@
         </div>
     </section>
     <!--Ripple was added here from inspira ui-->
-    <section class="newsletter mb-4 bg-background p-10">
+    <section class="newsletter mb-4 bg-background p-4">
       <div
         class="relative flex h-[550px] w-full flex-col items-center justify-center overflow-hidden rounded-lg lg:w-full md:w-full border border-red-500"
       >
