@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   Dialog,
   DialogContent,
@@ -15,7 +16,6 @@ import {
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
@@ -102,6 +102,10 @@ const isOpen = ref(false)
     </DrawerContent>
   </Drawer>
     </section>
+    <div class="acc-terms flex items-center space-x-2">
+      <Checkbox id="terms" />
+      <label for="terms" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">I agree to the terms and conditions</label>
+    </div>
 </template>
 <style lang="css" scoped>
 h1 {

@@ -53,7 +53,22 @@
         ></div>
         </div>
     </section>
-    <Footer class="fotty"/>
+    <section class="newsletter border-2 mb-4 bg-background p-2">
+      <div
+        class="relative flex h-[550px] w-full flex-col items-center justify-center overflow-hidden rounded-lg lg:w-full md:w-full border border-red-500"
+      >
+        <p
+          class="z-10 whitespace-pre-wrap text-center text-4xl font-medium tracking-tighter text-black dark:text-white"
+        >
+          Ripple Stuff built with inspira-ui...
+        </p>
+        <Ripple
+          class="bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)]"
+          circle-class="border-[hsl(var(--primary))] bg-[#0000]/25 dark:bg-[#fff]/25 rounded-full"
+        />
+      </div>
+    </section>
+    <Footer />
 </template>
 
 <script setup>
@@ -61,6 +76,7 @@ import Collection from '@/components/Collection.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import HyperText from '@/components/HyperText.vue';
 import Footer from '@/components/Footer.vue';
+import Ripple from '@/components/Ripple/Ripple.vue';
 
 import { ref } from 'vue';
 import Marquee from '@/components/Marquee.vue';
@@ -114,5 +130,8 @@ import ReviewCard from '@/components/ReviewCard.vue';
 .testimonies {
     background-color: rgb(216, 216, 216, 0.281);
     padding-bottom: 2rem;
+}
+.newsletter {
+    background-color: rgb(216, 216, 216, 0.281);
 }
 </style>
