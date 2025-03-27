@@ -3,11 +3,7 @@
     <Collection />
     <section class="testimonies">
         <div class="flex flex-col items-center justify-center space-y-4">
-            <HyperText
-            text="Client Testimonies"
-            class="text-2xl font-bold"
-            :duration="800"
-            />
+            <h5 class="text-2xl font-semibold mb-4">Client Testimonies</h5>
         </div>
 
         <div class="relative flex h-[280px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
@@ -74,7 +70,6 @@
 <script setup>
 import Collection from '@/components/Collection.vue';
 import HeroSection from '@/components/HeroSection.vue';
-import HyperText from '@/components/HyperText.vue';
 import Footer from '@/components/Footer.vue';
 import Ripple from '@/components/Ripple/Ripple.vue';
 
