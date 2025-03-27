@@ -12,26 +12,27 @@ import {
 import { shallowRef, ref, onMounted } from 'vue';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-vue-next';
+import Footer from '@/components/Footer.vue';
 
 const cartItems = ref([
     {
         itemName: 'Furniture Group G20 Gaming Chair',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: 'src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
+        itemImg: '/src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
         quantity: 1,
         price: 900
     },
     {
         itemName: 'Piper Ergonomics office chair',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: 'src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
+        itemImg: '/src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
         quantity: 1,
         price: 200
     },
     {
         itemName: 'New Adidas 350 Yeezy Boost Sneakers',
-        description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: "src/assets/images/U574LGIL.webp",
+        description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection',
+        itemImg: "/src/assets/images/U574LGIL.webp",
         quantity: 1,
         price: 600
     }
@@ -119,6 +120,7 @@ console.log(random)
             </div>
         </section>
     </main>
+    <Footer />
 </template>
 
 <style scoped>
