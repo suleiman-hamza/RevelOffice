@@ -3,13 +3,10 @@
     <Collection />
     <section class="testimonies">
         <div class="flex flex-col items-center justify-center space-y-4">
-            <HyperText
-            text="Client Testimonies"
-            class="text-2xl font-bold"
-            :duration="800"
-            />
+            <h5 class="text-2xl font-semibold mb-4">Client Testimonies</h5>
         </div>
 
+        <!--Marque was added here from inspira ui-->
         <div class="relative flex h-[280px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
         <!-- First Marquee -->
         <Marquee
@@ -53,15 +50,17 @@
         ></div>
         </div>
     </section>
-    <section class="newsletter border-2 mb-4 bg-background p-2">
+    <!--Ripple was added here from inspira ui-->
+    <section class="newsletter mb-4 bg-background p-4">
       <div
         class="relative flex h-[550px] w-full flex-col items-center justify-center overflow-hidden rounded-lg lg:w-full md:w-full border border-red-500"
       >
         <p
           class="z-10 whitespace-pre-wrap text-center text-4xl font-medium tracking-tighter text-black dark:text-white"
         >
-          Ripple Stuff built with inspira-ui...
+          Build your ideal workspace today. <hr> Let's do it.
         </p>
+        <Button @click="console.log('Ripple or No')" class="mt-2">Come on</Button>
         <Ripple
           class="bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)]"
           circle-class="border-[hsl(var(--primary))] bg-[#0000]/25 dark:bg-[#fff]/25 rounded-full"
@@ -74,9 +73,9 @@
 <script setup>
 import Collection from '@/components/Collection.vue';
 import HeroSection from '@/components/HeroSection.vue';
-import HyperText from '@/components/HyperText.vue';
 import Footer from '@/components/Footer.vue';
 import Ripple from '@/components/Ripple/Ripple.vue';
+import Button from '@/components/ui/button/Button.vue'
 
 import { ref } from 'vue';
 import Marquee from '@/components/Marquee.vue';

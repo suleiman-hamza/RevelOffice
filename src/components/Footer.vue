@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { MapPinHouse } from 'lucide-vue-next';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 </script>
 <template>
@@ -11,22 +12,22 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
                 </svg>
             </h2>
             <p>Your one stop destination for quality workspace equipments</p>
-            <hr>
         </section>
-        <section class="footer-social">
+        <hr>
+        <section class="footer-social flex justify-center">
             <div class="flex item-center gap-4">
-                <a href="#" class="block border-2" target="_blank">
+                <a href="#" class="block border-2 flex justify-center items-center p-1" target="_blank">
                     <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
                 </a>
-                <a href="#" class="block border-2" target="_blank">
-                    <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                <a href="#" class="block border-2 flex justify-center items-center p-1" target="_blank">
+                    <img src="@\assets\images\Platform=X (Twitter), Color=Original.svg" alt="instagram svg" width="24px" height="24px">
                 </a>
-                <a href="#" class="block border-2" target="_blank">
-                    <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                <a href="#" class="block border-2 flex justify-center items-center p-1" target="_blank">
+                    <img src="@\assets\images\Platform=WhatsApp, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
                 </a>
-                <a href="#" class="block border-2" target="_blank">
+                <!-- <a href="#" class="block border-2" target="_blank">
                     <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
-                </a>
+                </a> -->
             </div>
         </section>
         <hr>
@@ -81,15 +82,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
         </section>
         <hr>
         <section class="office-branch">
-            <div class="mt-4 flex gap-2 items-start">
-                <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+            <div class="mt-8 flex gap-2 items-start">
+                <MapPinHouse />       
                 <span>
                     <h5 class="font-semibold">Corporate Office:</h5>
                     <p>Suit 3, 207 Regent Street London, W18 3HH, UK</p>
                 </span>
             </div>
             <div class="mt-4 flex gap-2 items-start">
-                <img src="@\assets\images\Platform=Instagram, Color=Original.svg" alt="instagram svg" width="24px" height="24px">
+                <MapPinHouse />
                 <span>
                     <h5 class="font-semibold">Operations Office:</h5>
                     <p>Flat 7, Plot 1, 74 Patience Offiong Street, Katampe, Abuja, Nigeria</p>
@@ -98,7 +99,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
         </section>
         <hr>
         <section class="copyright">
-            <p class="mt-4">Copyright @ 2025,  All right reserved.</p>
+            <p class="mt-4 text-center">Copyright @ 2025,  All right reserved.</p>
         </section>
     </footer>
 </template>
@@ -106,7 +107,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 <style scoped>
 .footer {
     /* background-color: rgba(216, 216, 216, 0.281); */
-    border-top: 1px solid grey;
+    border-top: 2px solid hsl(220 13% 91%);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding: 1rem;
