@@ -32,20 +32,14 @@ const isOpen = ref(false)
 <template>
     <h1>Collections</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eum aut obcaecati ullam, et possimus nostrum fugiat quis harum officiis perferendis deleniti soluta. Inventore blanditiis minima voluptatem aliquam soluta eveniet.</p>
+    <router-link :to="{ path: '/user/john' }">Just a link</router-link>
+    <router-link :to="{ path: '/user/isah' }">Just a link</router-link>
     <section>
         <UseTemplate>
             <form class="grid items-start gap-4 px-4">
             <div class="grid gap-2">
                 <Label html-for="email">Email</Label>
                 <Input id="email" type="email" default-value="shadcn@example.com" />
-            </div>
-            <div class="grid gap-2">
-                <Label html-for="username">Username</Label>
-                <Input id="username" default-value="@shadcn" />
-            </div>
-            <div class="grid gap-2">
-                <Label html-for="username">Username</Label>
-                <Input id="username" default-value="@shadcn" />
             </div>
             <div class="grid gap-2">
                 <Label html-for="username">Username</Label>
