@@ -42,7 +42,7 @@ const random = Math.floor(Math.random() * 2045);
 console.log(random)
 </script>
 <template>
-    <main class="cart-summary">
+    <main class="cart-summary p-4">
         <div class="ghost-elem"></div>
         <h1 class="mb-4">Cart Summary</h1>
 

@@ -11,7 +11,7 @@ const router = useRouter();
     const count = ref(4);
     const items = reactive([
         {
-            name: 'Knoll reGeneration',
+            name: 'Knoll reGeneration FK7',
             price: 480,
             id: 434,
             quantity: 0
@@ -23,16 +23,34 @@ const router = useRouter();
             quantity: 0
         },
         {
-            name: 'Gaming ErgoChair2',
+            name: 'Gaming ErgoChair 210s',
             price: 480,
             id: 434,
             quantity: 0
-        }
+        }, 
+        {
+            name: 'Rocky ErgoChair 2 X24',
+            price: 480,
+            id: 434,
+            quantity: 0
+        }, 
+        {
+            name: 'Gaming ErgoChair200',
+            price: 480,
+            id: 434,
+            quantity: 0
+        }, 
+        {
+            name: 'Gaming Cooler chair',
+            price: 480,
+            id: 434,
+            quantity: 0
+        }, 
     ]);
 
     const cart = ref([
         {
-            name: 'Knoll reGeneration',
+            name: 'Knoll reGeneration FK7',
             price: 480,
             id: 434,
             quantity: 0
@@ -44,11 +62,29 @@ const router = useRouter();
             quantity: 0
         },
         {
-            name: 'Gaming ErgoChair2',
+            name: 'Gaming ErgoChair 210s',
             price: 480,
             id: 434,
             quantity: 0
-        }
+        },
+        {
+            name: 'Rocky ErgoChair 2 X24',
+            price: 480,
+            id: 434,
+            quantity: 0
+        },
+        {
+            name: 'Gaming ErgoChair210',
+            price: 480,
+            id: 434,
+            quantity: 0
+        },
+        {
+            name: 'Gaming ErgoChair67',
+            price: 480,
+            id: 434,
+            quantity: 0
+        },
     ])
 
     function addStuff(item) {
