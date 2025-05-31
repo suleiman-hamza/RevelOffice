@@ -5,7 +5,7 @@
         <RouterLink to="/collections" class="text-indigo-500">View all </RouterLink>
         </div>
         <div class="flex justify-center align-center flex-wrap gap-4">
-        <article class="flex border basis-[200px] md:basis-[220px] max-w-[260px] justify-between flex-col gap-2 p-2 bg-[#ffffffe8] rounded-md" v-for="(item, index) in store.items" :key="item.id">
+        <article v-for="(item, index) in store.items" :key="item.id" class="flex border basis-[200px] md:basis-[220px] max-w-[260px] justify-between flex-col gap-2 p-2 bg-[#ffffffe8] rounded-md">
           <div class="flex items-center justify-center">
             <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" class="w-[120px]">
           </div>
@@ -15,7 +15,7 @@
                 <h4>{{ item.name }}</h4>
                 <h5 class="text-[#aca9a9]">${{ item.price }} USD</h5>
             </div>
-            <button @click="store.addStuff(item)"
+            <button @click="store.addStuff(item, index)"
             class="w-[28px] h-[28px] border flex items-center justify-center rounded-md bg-white"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" class="w-[18px] h-[18px] p-0">
