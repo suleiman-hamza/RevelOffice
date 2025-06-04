@@ -2,7 +2,7 @@
     <HeroSection />
     <Collection />
     <section class="testimonies">
-        <div class="flex flex-col items-center justify-center space-y-4">
+        <div class="flex flex-col items-center justify-center py-8">
             <h5 class="text-2xl font-semibold mb-4">Client Testimonies</h5>
         </div>
 
@@ -53,16 +53,29 @@
     <!--Ripple was added here from inspira ui-->
     <section class="newsletter mb-4 bg-background p-4">
       <div
-        class="relative flex h-[550px] w-full flex-col items-center justify-center overflow-hidden rounded-lg lg:w-full md:w-full border border-red-500"
+        class="relative flex h-[550px] w-full flex-col items-center justify-center overflow-hidden rounded-lg lg:w-full md:w-full"
       >
         <p
-          class="z-10 whitespace-pre-wrap text-center text-4xl font-medium tracking-tighter text-black dark:text-white"
+          class="mb-4 whitespace-pre-wrap text-center text-4xl font-medium tracking-tighter text-black dark:text-white"
         >
-          Build your ideal workspace today. <hr> Let's do it.
+          Build your ideal workspace today. <br> Let's do it.
         </p>
-        <Button @click="console.log('Ripple or No')" class="mt-2">Come on</Button>
+        <!-- <div class="border p-4 rounded-md flex flex-col justify-center overflow-hidden">
+          <div class="font-extrabold text-lg [text-wrap:balance] text-gray-700">
+            Build your ideal
+            <span class="inline-flex flex-col overflow-hidden">
+              <ul class="block text-left leading-tight [&_li]:block animate-text-slide">
+                <li class="text-indigo-500">Modern</li>
+                <li class="text-sky-500">Classic</li>
+                <li class="text-teal-500">Minimalist</li>
+                <li class="text-red-500">Industrial</li>
+                <li class="text-yellow-500">Interior</li>
+              </ul>
+            </span>
+          </div>
+        </div> -->
         <Ripple
-          class="bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)]"
+          class="bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)] border-4 rounded-md z-[-1]"
           circle-class="border-[hsl(var(--primary))] bg-[#0000]/25 dark:bg-[#fff]/25 rounded-full"
         />
       </div>
@@ -132,5 +145,35 @@ import ReviewCard from '@/components/ReviewCard.vue';
 }
 .newsletter {
     background-color: rgb(216, 216, 216, 0.281);
+}
+
+.animate-text-slide {
+  animation: text-slide 12.5s ease infinite;
+}
+
+@keyframes text-slide {
+0%{
+transform: translateY(0%);
+}
+
+20% {
+  transform: translateY(-16.66%); 
+}
+
+40% {
+  transform: translateY(-33.33%);
+}
+
+60%{
+  transform: translateY(-50%);
+}
+
+80%{
+  transform: translateY(-66.66%);
+}
+
+100% {
+  transform: translateY(-83.33%);
+  }
 }
 </style>

@@ -2,7 +2,8 @@
     <nav class="nav-body">
         <Sheet>
                 <SheetTrigger as-child>
-                    <Button class="flex-initial btn">
+                    <Button class="flex-initial items-center justify-center p-[0.65rem] bg-[#ffffff] outline outline-[#80808046]">
+                        <span class="hidden text-[#252525]">Cart ({{ store.total }})</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" >
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
@@ -10,40 +11,17 @@
                 </SheetTrigger>
             <SheetContent>
             <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
+                <SheetTitle><h2 class="cart-preview">Cart Preview</h2></SheetTitle>
                 <SheetDescription>
-                    <div>
-                        <h2 class="cart-preview">Cart Preview</h2>
-                        <table>
-                            <thead>
-                                <tr class="t-head">
-                                    <th>Product</th>
-                                    <th>Qty</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="item in store.cart">
-                                    <td>{{ item.name }} </td>
-                                    <td>{{ item.quantity }} </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div v-if="store.cart.length === 0">
+                        <p>No items in Cart, Oops!</p>
                     </div>
-                    <div class="total">
+                    <p v-else>There's Something!</p>
+                    <!-- <div class="total">
                         <div><span>Items: {{ store.total }}</span></div>
                         <span>Total: ${{ store.totalcart }}</span>
                     </div>
-                    <div class="checkout">
-                        <Button @click="checkoutRoute" class="check-btn">
-                            <span>Checkout</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16px" height="16px">
-                            <path d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 1 1 6 0h3a.75.75 0 0 0 .75-.75V15Z" />
-                            <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
-                            <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
-                            </svg>
-                        </Button>
-                    </div>
-                    <span class="absoluteTotal" v-if="store.total > 0">{{ store.total }}</span>
+                    <span class="absoluteTotal" v-if="store.total > 0">{{ store.total }}</span> -->
                 </SheetDescription>
             </SheetHeader>
             </SheetContent>
@@ -52,7 +30,7 @@
         <span class="logo rounded-md">REVELOFFICE</span>
 
         <div class="hamburgerControl" ref="outsidemenu">
-            <Button class="btn" @click="toggleMenu">
+            <Button class="flex-initial items-center justify-center p-[0.65rem] bg-[#ffffff] outline outline-[#80808046]" @click="toggleMenu">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#202020" width="18px" height="18px">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
@@ -62,7 +40,7 @@
                     <span><RouterLink to="/">Home</RouterLink></span>
                     <span class="comingsoon"><RouterLink to="/test">Track Orders</RouterLink></span>
                     <span><RouterLink to="/checkout">Checkout</RouterLink></span>
-                    <span class="comingsoon"><RouterLink to="/collections">Collections</Routerlink></span>
+                    <span class="comingsoon"><RouterLink to="/collections">Collection</Routerlink></span>
                 </div>
             </Transition>
         </div>
@@ -165,18 +143,18 @@ function checkoutRoute() {
     padding-block: 0.45rem;
     background-color: #fff;
     font-size: 0.85rem;
-    color: rgb(37, 37, 37);
+    color: #252525;
     font-weight: 600;
     letter-spacing: 1px;
 }
-.btn {
+/* .btn {
     display: flex;
     place-items: center;
     padding: 0.65rem;
     align-items: center;
     background-color: #fff;
     outline: 2px solid rgb(218, 218, 218);
-}
+} */
 .cart {
     position: relative;
 }

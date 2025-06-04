@@ -11,62 +11,68 @@ const router = useRouter();
     const count = ref(4);
     const items = reactive([
         {
-            name: 'Knoll reGeneration',
+            name: 'Knoll reGeneration FK7',
             price: 480,
-            id: 434,
-            quantity: 0
+            id: 1
         },
         {
             name: 'Furniture Group G20',
             price: 136,
-            id: 442,
-            quantity: 0
+            id: 11
         },
         {
-            name: 'Gaming ErgoChair2',
+            name: 'Gaming ErgoChair 210s',
             price: 480,
-            id: 434,
-            quantity: 0
-        }
+            id: 21
+        }, 
+        {
+            name: 'Rocky ErgoChair 2 X24',
+            price: 480,
+            id: 31
+        }, 
+        {
+            name: 'Gaming ErgoChair200',
+            price: 480,
+            id: 41
+        }, 
+        {
+            name: 'Gaming Cooler chair',
+            price: 480,
+            id: 51
+        }, 
     ]);
 
-    const cart = ref([
-        {
-            name: 'Knoll reGeneration',
-            price: 480,
-            id: 434,
-            quantity: 0
-        },
-        {
-            name: 'Furniture Group G20',
-            price: 136,
-            id: 442,
-            quantity: 0
-        },
-        {
-            name: 'Gaming ErgoChair2',
-            price: 480,
-            id: 434,
-            quantity: 0
-        }
-    ])
+    const cart = ref([]);
 
-    function addStuff(item) {
-        const index = items.findIndex(i => i.name === item.name)
+    function addStuff(item, index) {
         console.log(index)
-            if (index !== -1) {
-                cart.value[index].quantity++;
-            } else {
-                cart.value.push(item.name)
-            }
+        console.log(item)
 
-        toast('Added an item to cart', {
-        description: `${item.name}`,
-        action: {
-          label: 'Checkout',
-          onClick: () => router.push('/checkout'),
-        },
-      })
+        if(cart.value[index]) {
+            console.log('truewwey')
+        }
+        cart.value.push(item)
+        // console.log(index)
+        // console.log(item)
+        console.log(cart.value)
+    //     if(cart.value.find(itemm => itemm.id = item.id)) {
+    //         cart.value.push(item.quantity++)
+
+    //     }
+
+    //         if (index !== -1) {
+    //             cart.value.push(item)
+    //         } 
+
+    //     console.log(cart.value)
+
+    //     toast('Added an item to cart', {
+    //     description: `${item.name}`,
+    //     action: {
+    //       label: 'Checkout',
+    //       onClick: () => router.push('/checkout'),
+    //     },
+    //   })
     }
 
     const total = computed(() => {
