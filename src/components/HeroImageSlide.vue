@@ -234,6 +234,7 @@ const transitionProps = computed(() => {
         <img
           :src="currentImage"
           :class="props.imageClass"
+          class="fullscreen-image"
         />
       </div>
     </Transition>
@@ -254,3 +255,12 @@ const transitionProps = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.fullscreen-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover; /* Crop to fill container */
+  object-position: center; /* Adjust crop focus */
+}
+</style>
