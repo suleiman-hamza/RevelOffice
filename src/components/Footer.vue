@@ -36,11 +36,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
             </div>
         </section>
         <hr>
-        <section class="max-w-[500px]">
+        <section class="max-w-[500px] flex flex-col gap-4 sm:flex-row sm:gap-8">
             <div>
                 <h4 class="font-bold">Menu</h4>
                 <ul>
-                    <li>Sales</li>
+                    <li><RouterLink to="/supa">Supa DB Test</RouterLink></li>
                     <li>Collections</li>
                     <li>About Us</li>
                     <li>FAQ</li>
