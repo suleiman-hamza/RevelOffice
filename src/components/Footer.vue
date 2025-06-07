@@ -40,7 +40,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
             <div>
                 <h4 class="font-bold">Menu</h4>
                 <ul>
-                    <li>Sales</li>
+                    <li><RouterLink to="/supa">Supa DB Test</RouterLink></li>
                     <li>Collections</li>
                     <li>About Us</li>
                     <li>FAQ</li>
