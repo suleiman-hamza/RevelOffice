@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { shallowRef, ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-vue-next';
 import Footer from '@/components/Footer.vue';
@@ -18,7 +18,7 @@ const cartItems = ref([
     {
         itemName: 'Furniture Group G20 Gaming Chair',
         description: 'A very durable and convinient fashion item, the yeezy boot sneakers combines fashion and sports vibez to your shoe collection', 
-        itemImg: '/src/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png',
+        itemImg: '/assets/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview-39pSONb6.png',
         quantity: 1,
         price: 900
     },
