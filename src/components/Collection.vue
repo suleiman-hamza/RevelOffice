@@ -1,5 +1,5 @@
 <template>
-    <section class="p-8 md:p-16 lg:p-32 bg-[#d8d8d848] border">
+    <section class="p-8 md:p-16 lg:p-32 bg-[#d8d8d848]">
         <div class="flex justify-between mb-4 items-center">
         <h3 class="text-2xl">Featured Collections</h3>
         <RouterLink to="/collections" class="text-indigo-500">View all </RouterLink>
@@ -29,7 +29,6 @@
 </template>
 
 <script setup>
-import { Button } from '@/components/ui/button'
 import { useStore } from '@/store/cartStore';
 const store = useStore();
 
