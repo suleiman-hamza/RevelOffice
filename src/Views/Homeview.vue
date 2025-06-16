@@ -1,6 +1,16 @@
+<script setup>
+import Collection from '@/components/Collection.vue';
+import HeroSection from '@/components/HeroSection.vue';
+import Footer from '@/components/Footer.vue';
+import Ripple from '@/components/Ripple/Ripple.vue';
+import Testimonies from '@/components/Testimonies.vue';
+import Features from '@/components/Features.vue';
+</script>
+
 <template>
   <HeroSection />
   <Collection />
+  <Features />
   <!--Ripple was added here from inspira ui-->
   <section class="newsletter bg-background p-4">
     <div
@@ -24,14 +34,6 @@
   <Testimonies />
   <Footer />
 </template>
-
-<script setup>
-import Collection from '@/components/Collection.vue';
-import HeroSection from '@/components/HeroSection.vue';
-import Footer from '@/components/Footer.vue';
-import Ripple from '@/components/Ripple/Ripple.vue';
-import Testimonies from '@/components/Testimonies.vue';
-</script>
 
 <style scoped>
 .newsletter {
