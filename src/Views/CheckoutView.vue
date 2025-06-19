@@ -37,13 +37,10 @@ const cartItems = ref([
         price: 600
     }
 ])
-
-const random = Math.floor(Math.random() * 2045);
-console.log(random)
 </script>
+
 <template>
-    <main class="cart-summary p-4">
-        <div class="ghost-elem"></div>
+    <main class="cart-summary p-4 pt-16">
         <h1 class="mb-4">Cart Summary</h1>
 
         <section class="cart-summary-main">
@@ -124,10 +121,6 @@ console.log(random)
 </template>
 
 <style scoped>
-.ghost-elem {
-    width: 100%;
-    height: 60px;
-}
 .cart-summary {
     h1 {
         font-size: 1.125rem;

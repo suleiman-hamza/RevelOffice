@@ -27,7 +27,7 @@
             </SheetContent>
         </Sheet>
         
-        <span class="logo rounded-md">REVELOFFICE</span>
+        <span class="logo rounded-md">REVEL-OFFICE</span>
 
         <div class="hamburgerControl" ref="outsidemenu">
             <Button class="flex items-center px-[0.55rem] bg-slate-200 justify-center hover:bg-transparent hover:ring-2 ring-zinc-800/50" @click="toggleMenu">
@@ -38,6 +38,7 @@
             <Transition name="scaleup">
                 <div class="hamburgerMenu" v-if="toggleState">
                     <span><RouterLink to="/">Home</RouterLink></span>
+                    <span><RouterLink to="/about">About Us</RouterLink></span>
                     <span class="comingsoon"><RouterLink to="/test">Track Orders</RouterLink></span>
                     <span><RouterLink to="/checkout">Checkout</RouterLink></span>
                     <span class="comingsoon"><RouterLink to="/collections">Collection</Routerlink></span>
