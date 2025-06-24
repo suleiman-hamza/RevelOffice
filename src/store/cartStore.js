@@ -43,6 +43,36 @@ const router = useRouter();
     ]);
 
     const cart = ref([]);
+    const collections = reactive([
+        {
+            name: 'Knoll reGeneration FK7',
+            price: 480,
+            id: 1,
+            itemsLeft: 102,
+            description: "Lorem ipsum odo lor tsu ya far to the lenghty part of iran and russian alliances, or isreal and america alliances, americans are evil"
+        },
+        {
+            name: 'Gaming Cooler chair',
+            price: 480,
+            id: 51,
+            itemsLeft: 12,
+            description: "Lorem ipsum odo lor tsu ya far to the lenghty part of iran and russian alliances, or isreal and america alliances, americans are evil"
+        },
+        {
+            name: 'Gaming ErgoChair200',
+            price: 480,
+            id: 41,
+            itemsLeft: 24,
+            description: "Lorem ipsum odo lor tsu ya far to the lenghty part of iran and russian alliances, or isreal and america alliances, americans are evil"
+        },
+        {
+            name: 'Furniture Group G20',
+            price: 136,
+            id: 11,
+            itemsLeft: 8,
+            description: "Lorem ipsum odo lor tsu ya far to the lenghty part of iran and russian alliances, or isreal and america alliances, americans are evil"
+        }
+    ])
 
     function addStuff(item, index) {
         console.log(index)
@@ -98,7 +128,8 @@ const router = useRouter();
         items,
         cart,
         totalcart,
-        total
+        total,
+        collections
     }
 })
 

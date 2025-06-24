@@ -23,18 +23,24 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { createReusableTemplate, useMediaQuery } from '@vueuse/core';
 import ItemCard from '@/components/ItemCard.vue';
+import { useStore } from '@/store/cartStore';
 import { ref } from 'vue';
-
 const [UseTemplate, GridForm] = createReusableTemplate()
 const isDesktop = useMediaQuery('(min-width: 768px)')
 
+const store = useStore()
 const isOpen = ref(false)
 </script>
 <template>
   <section class="p-4">
     
     <h1>Collections</h1>
-    <ItemCard />
+    <section class="flex flex-wrap">
+      <ItemCard v-for="item in store.collections" :name="item.name" :price="item.price" :description="item.description" :itemsLeft="item.itemsLeft"/>
+    </section>
+    <div class="border p-2">
+      <p>{{ store.collections }}</p>
+    </div>
     <section>
         <UseTemplate>
             <form class="grid items-start gap-4 px-4">

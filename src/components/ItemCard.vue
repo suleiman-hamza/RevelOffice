@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
 
+const props = defineProps<{
+    name: string,
+    price: number,
+    description: string,
+    itemsLeft: number
+}>()
+
 interface itemInfo {
     name: string
     price: number | null
@@ -16,9 +23,9 @@ const itemInfo = reactive<itemInfo>({
 </script>
 
 <template>
-    <section class="max-w-[150px]">
+    <section class="max-w-[120px] mb-4">
         <div
-        class="flex border justify-between flex-col gap-2 bg-[#ffffffe8] rounded-md shadow relative mb-2">
+        class="flex border justify-between flex-col gap-2 bg-[#ffffffe8] rounded-md shadow relative">
         <div class="flex items-center justify-center border">
             <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" class="w-[80px]">
         </div>
@@ -32,12 +39,14 @@ const itemInfo = reactive<itemInfo>({
             </button>
             <!--absolute favouritebutton-->
     </div>
-     <div class="items-center flex justify-between">
+     <div class="items-center flex justify-between border">
             <div>
-                <h4 class="truniicate">{{ itemInfo.name }}</h4>
-                <div class="flex">
-                    <h5 class="text-[#aca9a9] text-[0.8rem]">${{ itemInfo.price }} USD</h5>
-                    <h5 class="text-[#aca9a9] text-[0.8rem]">6 items left</h5>
+                <h4 class="truniicate">{{ props.name }}</h4>
+                <div class="flex items-center justify-between">
+                    <span class="flex flex-col">
+                        <h5 class="text-[#aca9a9] text-[0.8rem]">${{ props.price }}</h5>
+                    <h5 class="text-[#aca9a9] text-[0.8rem]">{{ props.itemsLeft }}</h5>
+                    </span>
                     <button @click="" class="w-[28px] h-[28px] border flex items-center justify-center rounded-md bg-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#202020" class="w-[18px] h-[18px] p-0">
