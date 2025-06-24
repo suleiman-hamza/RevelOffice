@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Dialog,
   DialogContent,
@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
+} from '@/components/ui/dialog';
 import {
   Drawer,
   DrawerClose,
@@ -18,11 +18,12 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/components/ui/drawer'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { ref } from 'vue'
+} from '@/components/ui/drawer';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { createReusableTemplate, useMediaQuery } from '@vueuse/core';
+import ItemCard from '@/components/ItemCard.vue';
+import { ref } from 'vue';
 
 const [UseTemplate, GridForm] = createReusableTemplate()
 const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -30,10 +31,10 @@ const isDesktop = useMediaQuery('(min-width: 768px)')
 const isOpen = ref(false)
 </script>
 <template>
+  <section class="p-4">
+    
     <h1>Collections</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eum aut obcaecati ullam, et possimus nostrum fugiat quis harum officiis perferendis deleniti soluta. Inventore blanditiis minima voluptatem aliquam soluta eveniet.</p>
-    <router-link :to="{ path: '/user/john' }">Just a link</router-link>
-    <router-link :to="{ path: '/user/isah' }">Just a link</router-link>
+    <ItemCard />
     <section>
         <UseTemplate>
             <form class="grid items-start gap-4 px-4">
@@ -100,6 +101,7 @@ const isOpen = ref(false)
       <Checkbox id="terms" />
       <label for="terms" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">I agree to the terms and conditions</label>
     </div>
+  </section>
 </template>
 <style lang="css" scoped>
 h1 {
