@@ -10,6 +10,7 @@
             </h2>
             <p>Your one stop destination for quality workspace equipments</p>
         </section>
+        <hr class="w-[200px] mx-auto mb-6">
         <section class="max-w-[500px] flex flex-row gap-12 mb-5">
             <div>
                 <h4 class="font-bold text-[#aca9a9] underline">Menu</h4>
