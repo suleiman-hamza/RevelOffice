@@ -23,14 +23,14 @@ const itemInfo = reactive<itemInfo>({
 </script>
 
 <template>
-    <section class="max-w-[120px] mb-4">
+    <section class="max-w-[145px] sm:max-w-[175px] md:max-w-[165px] mb-4">
         <div
         class="flex border justify-between flex-col gap-2 bg-[#ffffffe8] rounded-md shadow relative">
         <div class="flex items-center justify-center border">
-            <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" class="w-[80px]">
+            <img src="@/assets/images/PIPER-C044-SIDE-FRONT4-200x300-removebg-preview.png" class="w-[100px]">
         </div>
         <!--absolute favouritebutton-->
-        <button @click="" class="w-[28px] h-[28px] border flex items-center justify-center rounded-full bg-white absolute right-2">
+        <button @click="" class="w-[28px] h-[28px] border flex items-center justify-center rounded-full bg-white absolute right-2 top-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#202020" class="w-[18px] h-[18px] p-0">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -39,13 +39,13 @@ const itemInfo = reactive<itemInfo>({
             </button>
             <!--absolute favouritebutton-->
     </div>
-     <div class="items-center flex justify-between border">
+     <div class="items-center flex justify-between border p-1">
             <div>
                 <h4 class="truniicate">{{ props.name }}</h4>
                 <div class="flex items-center justify-between">
                     <span class="flex flex-col">
                         <h5 class="text-[#aca9a9] text-[0.8rem]">${{ props.price }}</h5>
-                    <h5 class="text-[#aca9a9] text-[0.8rem]">{{ props.itemsLeft }}</h5>
+                    <h5 class="text-[#aca9a9] text-[0.8rem]">Stock left({{ props.itemsLeft }})</h5>
                     </span>
                     <button @click="" class="w-[28px] h-[28px] border flex items-center justify-center rounded-md bg-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

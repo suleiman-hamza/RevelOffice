@@ -35,11 +35,10 @@ const isOpen = ref(false)
   <section class="p-4">
     
     <h1>Collections</h1>
-    <section class="flex flex-wrap">
+    <section class="flex flex-wrap gap-2 sm:gap-3 md:gap-4 border justify-center">
       <ItemCard v-for="item in store.collections" :name="item.name" :price="item.price" :description="item.description" :itemsLeft="item.itemsLeft"/>
     </section>
     <div class="border p-2">
-      <p>{{ store.collections }}</p>
     </div>
     <section>
         <UseTemplate>
