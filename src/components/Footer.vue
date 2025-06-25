@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <footer class="p-6 md:p-16">
+    <footer class="p-6 md:px-16">
         <section class="text-center mb-5">
             <h2 class="text-xl font-bold mb-2">
                 Revel Office
@@ -11,7 +11,9 @@
             <p>Your one stop destination for quality workspace equipments</p>
         </section>
         <hr class="w-[200px] mx-auto mb-6">
-        <section class="max-w-[500px] flex flex-row gap-12 mb-5">
+
+        <section class="sm:flex sm:justify-between mb-4">
+            <section class="size-max flex flex-row gap-12 mb-5">
             <div>
                 <h4 class="font-bold text-[#aca9a9] underline">Menu</h4>
                 <ul class="flex flex-col gap-2">
@@ -32,7 +34,7 @@
                 </ul>
             </div>
         </section>
-        <section class="mb-5">
+        <section class="mb-5 inline">
             <div class="flex gap-2 items-start">
                 <span>
                     <h5 class="font-semibold text-[#aca9a9]">Corporate Office:</h5>
@@ -45,6 +47,7 @@
                     <p>Flat 7, Plot 1, 74 Patience Offiong Street, <br> Katampe, Abuja, Nigeria</p>
                 </span>
             </div>
+        </section>
         </section>
         <hr>
         <section>

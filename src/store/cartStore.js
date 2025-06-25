@@ -16,11 +16,6 @@ const router = useRouter();
             id: 1
         },
         {
-            name: 'Furniture Group G20',
-            price: 136,
-            id: 11
-        },
-        {
             name: 'Gaming ErgoChair 210s',
             price: 480,
             id: 21
@@ -34,11 +29,6 @@ const router = useRouter();
             name: 'Gaming ErgoChair200',
             price: 480,
             id: 41
-        }, 
-        {
-            name: 'Gaming Cooler chair',
-            price: 480,
-            id: 51
         }, 
     ]);
 
