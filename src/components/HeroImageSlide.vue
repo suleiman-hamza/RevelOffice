@@ -217,7 +217,6 @@ const transitionProps = computed(() => {
 <template>
     <div
     ref="sliderRef"
-    tabindex="0"
     class="relative flex size-full items-center justify-center overflow-hidden transition-colors focus:outline-none focus:ring-1"
     :style="{
       perspective: props.perspective,
@@ -260,7 +259,7 @@ const transitionProps = computed(() => {
 .fullscreen-image {
   width: 100%;
   height: 100vh;
-  object-fit: cover; /* Crop to fill container */
-  object-position: center; /* Adjust crop focus */
+  object-fit: cover;
+  object-position: center;
 }
 </style>

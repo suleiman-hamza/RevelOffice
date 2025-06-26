@@ -126,14 +126,4 @@ const cartItems = ref([
         font-size: 1.125rem;
     }
 }
-/*multiline ellipsis: truncates text after multiplr lines, should work in modern browsers. src: deepseek ai*/
-.truniicate {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    text-overflow: ellipsis;
-    width: 100%;
-}
 </style> 

@@ -87,6 +87,17 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+/*multiline ellipsis: truncates text after multiplr lines, should work in modern browsers. src: deepseek ai*/
+.truniicate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    text-overflow: ellipsis;
+    width: 100%;
+}
  
 @layer base {
   * {
